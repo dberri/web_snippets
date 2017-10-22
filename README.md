@@ -14,5 +14,5 @@ Inspired by the Jackson Guitars website: https://www.jacksonguitars.com/gear/sha
 When not in hover state, only part of the image is shown, with its container's overlay hidden. <br>
 When in hover state, the image inside the container is scaled, translated and rotated 45° do fit the said container, so the entire image is shown.
 
-
+<hr>
 ps: Not using best practices, like using a separated css file, only because they are really small snippets.
