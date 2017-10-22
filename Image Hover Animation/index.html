@@ -30,7 +30,28 @@
             }
 
             .container:hover img {
-                transform: translate(0, 15%) rotate(45deg) scale(.35);
+                transform: translate(0, 5%) rotate(45deg) scale(.35);
+            }
+
+            .container .info {
+                padding: 20px 0;
+                position: absolute;
+                bottom: -350px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                line-height: 1.6em;
+                background-color: rgba(0,0,0,0.5);
+                color: white;
+                transition: bottom .5s;
+            }
+
+            .container .info h3 {
+                text-transform: uppercase;
+            }
+
+            .container:hover .info {
+                bottom: 0;
             }
         </style>
 
@@ -38,6 +59,14 @@
     <body>
         <div class="container">
             <img src="guitar.png" alt="">
+
+            <div class="info">
+                <h3>Jackson Rhoads</h3>
+                <p>Lorem Ipsum</p>
+                <p>Lorem Ipsum</p>
+                <p>Lorem Ipsum</p>
+                <p>Lorem Ipsum</p>
+            </div>
         </div>
 
     </body>
