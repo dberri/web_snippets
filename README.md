@@ -1,5 +1,5 @@
 # web_snippets
-A repository to store small CSS and JS snippets.
+A repository to store small CSS and JS animation snippets.
 
 #### Hover Outline Animation
 A transition applied to an image when hovered. An overlay fades in with a text and an outline drawing itself from the center.
@@ -12,7 +12,8 @@ There is also small transitions with the info's underlines.
 #### Image Hover Animation
 Inspired by the Jackson Guitars website: https://www.jacksonguitars.com/gear/shape/rhoads <br>
 When not in hover state, only part of the image is shown, with its container's overlay hidden. <br>
-When in hover state, the image inside the container is scaled, translated and rotated 45° do fit the said container, so the entire image is shown.
+When in hover state, the image inside the container is scaled, translated and rotated 45° do fit the said container, so the entire image is shown.<br>
+Also, a sliding information box slides in.
 
 <hr>
 ps: Not using best practices, like using a separated css file, only because they are really small snippets.
