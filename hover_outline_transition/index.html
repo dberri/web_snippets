@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+
+    <style media="screen">
+
+    .item {
+        overflow: hidden;
+        width: 450px;
+        height: 300px;
+        position: relative;
+        background-color: black;
+    }
+
+    .item img {
+        max-width: 100%;
+        position: relative;
+        transition: all .4s;
+    }
+
+    .overlay {
+        position: absolute;
+        border: 0;
+        box-sizing: border-box;
+        left: 5%;
+        right: 5%;
+        bottom: 5%;
+        background-color: none;
+        width: 90%;
+        height: 90%;
+        transition: .5s ease-out;
+    }
+
+    .overlay::before, .overlay::after {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: inherit;
+        position: absolute;
+        content: "";
+        transform-origin: center;
+        transition: transform .3s ease-in-out;
+    }
+
+    .overlay::before {
+        border-top: 3px solid white;
+        border-bottom: 3px solid white;
+        transform: scale3d(0,1,1);
+    }
+
+    .overlay::after {
+        border-left: 3px solid white;
+        border-right: 3px solid white;
+        transform: scale3d(1,0,1);
+    }
+
+    .overlay:hover::before,
+    .overlay:hover::after {
+        transform: scale3d(1,1,1);
+    }
+
+    .item:hover img {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+
+    .overlay p {
+        color: transparent;
+        font-weight: 700;
+        transition: color .3s;
+        text-align: center;
+        line-height: calc(.9*280px);
+    }
+
+    .overlay:hover p {
+        color: white;
+    }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="item">
+        <img src="img.jpg" alt="">
+        <div class="overlay">
+            <p>VIEW MORE</p>
+        </div>
+    </div>
+
+</body>
+</html>
