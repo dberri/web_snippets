@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>Hidden Footer</title>
+
+        <style media="screen">
+            html * {
+                box-sizing: border-box;
+                margin: 0;
+            }
+
+            main {
+                padding: 30px;
+                position: relative;
+                z-index: 100;
+                margin-bottom: 150px;
+                overflow: hidden;
+                height: 100vh;
+                /* Trick is here, by default the bg is transparent */
+                background: #fff;
+                box-shadow: 0 2px 10px 5px rgba(0, 0, 0, 0.5);
+            }
+
+            .title, .subtitle {
+                text-align: center;
+                margin-top: 30px
+            }
+
+            .footer {
+                padding: 30px;
+                color: white;
+                height: 150px;
+                width: 100%;
+                background: #656565;
+
+                position: fixed;
+                z-index: -1;
+                bottom: 0;
+            }
+
+        </style>
+
+    </head>
+    <body>
+
+        <main>
+            <h1 class="title">Hello World!</h1>
+            <h2 class="subtitle">Scroll Down to reveal footer...</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae illum, amet dolores veritatis! Sit nisi, delectus consectetur debitis voluptatum fuga, reprehenderit tempore corporis culpa provident sunt, eum et error perferendis.</p>
+        </main>
+
+        <footer class="footer">
+            <h1> Ta da! Footer revealed!</h1>
+        </footer>
+    </body>
+</html>
