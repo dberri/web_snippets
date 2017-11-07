@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Slide Toggle</title>
+
+        <style media="screen">
+
+        html * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .toggle {
+            position: relative;
+            left: 50px;
+            width: 100px;
+            height: 50px;
+            border: 1px solid black;
+            border-radius: 30px;
+            padding-left: 2.5px;
+            padding-top: 2.5px;
+            transition: background-color .3s;
+        }
+
+        .toggle .btn {
+            position: relative;
+        }
+
+        .toggle .btn::before {
+            content: '';
+            width: 45px;
+            height: 45px;
+            display: block;
+            position: absolute;
+            border: 1px solid black;
+            border-radius: 100%;
+            background-color: white;
+            right: -47px;
+            transition: right .3s;
+        }
+
+        .active {
+            background-color: green;
+        }
+
+        .active .btn::before {
+            right: -97px;
+        }
+
+        </style>
+
+    </head>
+    <body onload="start()">
+
+
+        <div class="container">
+            <div class="toggle">
+                <a href="#" class="btn"></a>
+            </div>
+        </div>
+
+
+
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
+        <script>
+
+        function start() {
+            switchClick();
+        }
+
+        function switchClick() {
+            var toggle = document.getElementsByClassName('toggle')[0];
+
+            toggle.addEventListener('click', function() {
+                verifyActive(this);
+            });
+        }
+
+        function verifyActive(toggle) {
+            if(toggle.classList.contains('active')) {
+                toggle.classList.remove('active');
+            } else {
+                toggle.classList.add('active');
+            }
+        }
+
+        </script>
+    </body>
+</html>
