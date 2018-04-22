@@ -18,3 +18,16 @@ Inspired by the Jackson Guitars website: https://www.jacksonguitars.com/gear/sha
 When not in hover state, only part of the image is shown, with its container's overlay hidden. <br>
 When in hover state, the image inside the container is scaled, translated and rotated 45° do fit the said container, so the entire image is shown.<br>
 Also, a sliding information box slides in.
+
+![](https://github.com/dberri/web_snippets/blob/master/image_hover_transition/preview.gif)
+
+#### Slide Toggle
+A slide toggle made only with HTML elements.
+
+![](https://github.com/dberri/web_snippets/blob/master/slide_toggle/preview.gif)
+
+
+#### Box Hover
+Divs scale up and change the background color with a fade transition on hover.
+
+![](https://github.com/dberri/web_snippets/blob/master/box_hover/preview.gif)
