@@ -3,10 +3,23 @@
 
 .flex {
   display: flex;
+  margin-bottom: -36px;
 }
 
-.flex > *:not(:last-child) {
-  margin-right: 60px;
+.flex:nth-child(odd) {
+  margin-left: calc(30px + 104px + 8px);
+}
+
+.flex:nth-child(odd) > * {
+  margin-right: calc(60px + 104px);
+}
+
+.flex:nth-child(even) {
+  margin-left: 30px;
+}
+
+.flex:nth-child(even) > * {
+  margin-right: calc(60px + 104px);
 }
 
 .hexagon {
@@ -45,6 +58,7 @@
   height: 60px;
   width: 104px;
   top: 30px;
+  margin-left: 30px;
 }
 
 /* Horizontal */
