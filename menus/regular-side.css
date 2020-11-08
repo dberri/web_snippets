@@ -1,0 +1,138 @@
+.RegularSide-nav {
+  height: 6rem;
+  position: relative;
+}
+
+.RegularSide-buttonWrapper,
+.RegularSide-list {
+  background-image: linear-gradient(
+    to right,
+    var(--color-Blue-700),
+    var(--color-Blue-300)
+  );
+}
+
+.RegularSide-buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.RegularSide-list {
+  display: flex;
+  align-items: center;
+}
+
+.RegularSide-listItemLink {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  color: var(--color-Blue-100);
+}
+
+.RegularSide-listItemLink:active {
+  background-color: var(--color-Blue-700);
+}
+
+@media screen and (max-width: 48em) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .Button {
+    color: var(--color-White);
+    float: right;
+    height: 6rem;
+    width: 6rem;
+  }
+
+  .Button:not([aria-expanded="true"]) > .Button-open,
+  .Button[aria-expanded="true"] > .Button-close {
+    display: inline;
+  }
+
+  .Button[aria-expanded="true"] > .Button-open,
+  .Button:not([aria-expanded="true"]) > .Button-close {
+    display: none;
+  }
+
+  .RegularSide-list {
+    flex-direction: column;
+    height: calc(100vh - 6rem);
+    left: 0;
+    margin-top: 6rem;
+    position: absolute;
+    top: 0;
+    transform: translateX(100%);
+    transition: transform 0.25s ease-out;
+    width: 100%;
+  }
+
+  .RegularSide-nav--open .RegularSide-list {
+    transform: translateX(0);
+  }
+
+  .RegularSide-nav:not(.RegularSide-nav--open) .RegularSide-list {
+    transition-delay: 0.5s;
+  }
+
+  .RegularSide-listItem {
+    width: 100%;
+  }
+
+  .RegularSide-listItemLink {
+    height: 6rem;
+    transition: transform 0.25s ease;
+  }
+
+  .RegularSide-listItem:nth-child(2) .RegularSide-listItemLink {
+    transform: translateX(5vw);
+    transition-delay: 0.2s;
+  }
+
+  .RegularSide-listItem:nth-child(3) .RegularSide-listItemLink {
+    transform: translateX(10vw);
+    transition-delay: 0.25s;
+  }
+
+  .RegularSide-listItem:nth-child(4) .RegularSide-listItemLink {
+    transform: translateX(15vw);
+    transition-delay: 0.3s;
+  }
+
+  .RegularSide-listItem:nth-child(5) .RegularSide-listItemLink {
+    transform: translateX(20vw);
+    transition-delay: 0.35s;
+  }
+
+  .RegularSide-listItem:not(:last-child) {
+    border-bottom: 0.1rem solid var(--color-Blue-100);
+  }
+
+  .RegularSide-nav--open .RegularSide-listItem .RegularSide-listItemLink {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (min-width: 48.0625em) {
+  .RegularSide-buttonWrapper {
+    display: none;
+  }
+
+  .RegularSide-list {
+    flex-direction: row;
+    height: 100%;
+  }
+
+  .RegularSide-listItemLink {
+    height: 100%;
+  }
+
+  .RegularSide-listItemLink:hover,
+  .RegularSide-listItemLink:focus,
+  .RegularSide-listItemLink:active {
+    background-color: var(--color-Blue-700);
+  }
+}
