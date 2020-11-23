@@ -1,0 +1,136 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing Text Animation</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com"> 
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background: #000;
+      font-family: 'Indie Flower', cursive;
+    }
+
+    section {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0;
+      color: #111;
+      font-size: 16em;
+    }
+
+    h1 span {
+      margin: 0;
+      padding: 0;
+      display: table-cell;
+    }
+
+    h1.slide-neon span {
+      animation: glow 2s ease infinite;
+      color: #fff;
+      filter: blur(3px);
+      text-shadow: 0 0 10px #39ff14,
+                  0 0 20px #39ff14,
+                  0 0 40px #39ff14,
+                  0 0 80px #39ff14,
+                  0 0 120px #39ff14,
+                  0 0 200px #39ff14,
+                  0 0 300px #39ff14;
+    }
+
+    h1.slide-neon span:nth-child(2) {
+      animation-delay: 0.25s;
+    }
+    h1.slide-neon span:nth-child(3) {
+      animation-delay: 0.5s;
+    }
+    h1.slide-neon span:nth-child(4) {
+      animation-delay: 0.75s;
+    }
+    h1.slide-neon span:nth-child(5) {
+      animation-delay: 1s;
+    }
+    h1.slide-neon span:nth-child(6) {
+      animation-delay: 1.25s;
+    }
+    h1.slide-neon span:nth-child(7) {
+      animation-delay: 1.5s;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+      }
+      25%, 75% {
+        color: #111;
+        filter: blur(0px);
+        text-shadow: none;
+      }
+    }
+
+    h1.broken-neon span {
+      color: #fff;
+      filter: blur(3px);
+      text-shadow: 0 0 10px #39ff14,
+                  0 0 20px #39ff14,
+                  0 0 40px #39ff14;
+    }
+
+    h1.broken-neon span:nth-child(4) {
+      animation: broken 2s linear infinite;
+    }
+
+    @keyframes broken {
+      0%, 50%, 100% {
+        color: #fff;
+        text-shadow: 0 0 10px #39ff14,
+                  0 0 20px #39ff14,
+                  0 0 40px #39ff14,
+                  0 0 80px #39ff14;
+      }
+      95% {
+        color: #111;
+        filter: blur(0px);
+        text-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="first">
+    <h1 class="slide-neon">
+      <span>G</span>
+      <span>l</span>
+      <span>o</span>
+      <span>w</span>
+      <span>i</span>
+      <span>n</span>
+      <span>g</span>
+    </h1>
+  </section>
+  <section class="second">
+    <h1 class="broken-neon">
+      <span>G</span>
+      <span>l</span>
+      <span>o</span>
+      <span>w</span>
+      <span>i</span>
+      <span>n</span>
+      <span>g</span>
+    </h1>
+  </section>
+</body>
+</html>
