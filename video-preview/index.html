@@ -27,6 +27,10 @@
     .Input {
 
     }
+
+    .Canvas {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -42,16 +46,46 @@
       <input type="file" name="file[]" class="Input" accept="video/*">
       <p class="Input-message"></p>
     </div>
+
+    <canvas class="Canvas" id="canvas"></canvas>
+
+    <div class="Thumbnail-container"></div>
   </main>
 
   <script>
     const input = document.querySelector('.Input');
     const video = document.getElementById('video_id');
+    const thecanvas = document.getElementById('canvas')
 
     input.addEventListener('change', (e) => {
-      console.log(input.files[0])
       video.src = URL.createObjectURL(input.files[0])
       video.parentElement.load();
+    });
+
+    function generateThumbnail() {
+      const context = thecanvas.getContext('2d');
+      context.drawImage(video.parentElement, 0, 0, 220, 150);
+      const dataURL = thecanvas.toDataURL();
+
+      const img = document.createElement('img');
+      img.setAttribute('src', dataURL);
+      document.querySelector('.Thumbnail-container').appendChild(img);
+    }
+
+    let i = 0;
+
+    video.parentElement.addEventListener('loadeddata', function() {
+      this.currentTime = i;
+    });
+
+    video.parentElement.addEventListener('seeked', function() {
+      generateThumbnail();
+      i += this.duration / 6;
+
+      if (i <= this.duration) {
+        // this will trigger another seeked event
+        this.currentTime = i;
+      }
     });
   </script>
 </body>
