@@ -1,85 +1,99 @@
-<html lang="en">
+<html lang="en" class="text-gray-900 leading-tight">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video Preview</title>
-  <style>
-    body {
-      padding: 0;
-      margin: 0;
-    }
-
-    .App {
-
-    }
-
-    .Video-container {}
-
-    .Video {
-      width: 100%;
-      height: 560px;
-    }
-
-    .Input-container {
-      
-    }
-
-    .Input {
-
-    }
-
-    .Canvas {
-      display: none;
-    }
-  </style>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <main class="App">
-    <div class="Video-container">
-      <video class="Video" controls>
-        <source src="" id="video_id">
-          Your browser does not support HTML5 video.
-      </video>
+<body class="min-h-screen bg-gray-200">
+  <main class="">
+    <div class="flex bg-gray-800 h-1/2">
+      <video class="mx-auto w-3/4 min-h-full" controls src="" id="video_id"></video>
     </div>
     
-    <div class="Input-container">
-      <input type="file" name="file[]" class="Input" accept="video/*">
-      <p class="Input-message"></p>
+    <div class="p-4 h-48 flex flex-col items-center justify-between">
+      <button class="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded cursor-pointer overflow-hidden relative">
+        <input type="file" name="file[]" id="input" accept="video/*" class="block absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer">
+        <span class="text-white uppercase">Upload video</span>
+      </button>
+      <div class="bg-gray-300 mx-auto w-3/6 rounded p-4">
+        <dl class="text-gray-900">
+          <div class="mb-2">
+            <dt class="font-bold inline">Title:</dt>
+            <dd class="inline" id="video-name"></dd>
+          </div>
+
+          <div class="mb-2">
+            <dt class="font-bold inline">Size:</dt>
+            <dd class="inline" id="video-size"></dd>
+          </div>
+
+          <div class="">
+            <dt class="font-bold inline">Format:</dt>
+            <dd class="inline" id="video-format">video/mp4</dd>
+          </div>
+        </dl>
+      </div>
     </div>
 
-    <canvas class="Canvas" id="canvas"></canvas>
+    <canvas class="hidden" id="canvas"></canvas>
 
-    <div class="Thumbnail-container"></div>
+    <div class="flex flex-wrap justify-between mx-auto w-3/6" id="thumbs">
+    </div>
   </main>
 
   <script>
-    const input = document.querySelector('.Input');
+    const input = document.getElementById('input');
+    const videoName = document.getElementById('video-name');
+    const videoSize = document.getElementById('video-size');
+    const videoFormat = document.getElementById('video-format');
     const video = document.getElementById('video_id');
-    const thecanvas = document.getElementById('canvas')
+    const thecanvas = document.getElementById('canvas');
+    let videoMeta = {
+      name: '',
+      size: '',
+      format: ''
+    }
 
     input.addEventListener('change', (e) => {
+      videoMeta.name = input.files[0].name;
+      videoMeta.size = input.files[0].size
+      videoMeta.format = input.files[0].type
+
+      videoName.textContent = videoMeta.name
+      videoSize.textContent = Math.round(videoMeta.size / 1000000) + 'mb'
+      videoFormat.textContent = videoMeta.format
+
       video.src = URL.createObjectURL(input.files[0])
-      video.parentElement.load();
+      video.load();
     });
 
-    function generateThumbnail() {
+    function generateThumbnail(i) {
+      thecanvas.width = video.videoWidth;
+      thecanvas.height = video.videoHeight;
       const context = thecanvas.getContext('2d');
-      context.drawImage(video.parentElement, 0, 0, 220, 150);
+      context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
       const dataURL = thecanvas.toDataURL();
 
+      const imgWrapper = document.createElement('a');
+      imgWrapper.classList.add('block', 'mb-4', 'w-64', 'h-32');
+      imgWrapper.href = dataURL;
+      imgWrapper.download = `thumb_${i}.jpg`;
       const img = document.createElement('img');
       img.setAttribute('src', dataURL);
-      document.querySelector('.Thumbnail-container').appendChild(img);
+      img.classList.add('object-center', 'object-cover', 'w-full', 'h-full');
+      imgWrapper.appendChild(img)
+      document.getElementById('thumbs').appendChild(imgWrapper);
     }
 
     let i = 0;
 
-    video.parentElement.addEventListener('loadeddata', function() {
+    video.addEventListener('loadeddata', function() {
       this.currentTime = i;
     });
 
-    video.parentElement.addEventListener('seeked', function() {
-      generateThumbnail();
+    video.addEventListener('seeked', function() {
+      generateThumbnail(i);
       i += this.duration / 6;
 
       if (i <= this.duration) {
