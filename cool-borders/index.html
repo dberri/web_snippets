@@ -1,0 +1,147 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cool Borders</title>
+  <style>
+    html {
+      --blue: #008DD5;
+      --orange: #FF6342;
+      --green: #00BC86;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    main > div {
+      padding: 2rem;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    section {
+      box-sizing: border-box;
+      padding: 2rem;
+    }
+
+    /* Limitation: can't control white spacing, everything scales equaly */
+    section.style-1 {
+      border: 5px solid;
+      border-image-source: url('https://dberri.s3.us-east-2.amazonaws.com/method-draw-image.svg');
+      border-image-slice: 170;
+    }
+
+    /* Limitation: can't control white spacing, everything scales equaly */
+    section.style-2 {
+      background-repeat: no-repeat;
+      background-position:
+        0 0,
+        0 0,
+        100% 0,
+        0 100%;
+      background-size:
+        5px 100%,
+        100% 5px,
+        5px 100%,
+        100% 5px;
+      background-image:
+        linear-gradient(0deg, var(--green) 40%, transparent 40%, transparent 75%, var(--blue) 75%), /* left */
+        linear-gradient(90deg, var(--blue) 35%, transparent 35%, transparent 75%, var(--orange) 75%), /* top */
+        linear-gradient(180deg, var(--orange) 25%, transparent 25%, transparent 45%, var(--orange) 45%, var(--orange) 75%, transparent 75%), /* right */
+        linear-gradient(270deg, transparent 25%, var(--green) 25%); /* bottom */
+    }
+
+    /* Limitation: can control the colors at the starting points of the gradients but not the end */
+    section.style-3 {
+      background-repeat: no-repeat;
+      background-position:
+        0 0,
+        0 0,
+        100% 0,
+        0 100%;
+      background-size:
+        5px 100%,
+        100% 5px,
+        5px 100%,
+        100% 5px;
+      background-image:
+        linear-gradient(0deg, var(--green) 60px, transparent 60px, transparent 75%, var(--blue) 75%), /* left */
+        linear-gradient(90deg, var(--blue) 120px, transparent 120px, transparent 75%, var(--orange) 75%), /* top */
+        linear-gradient(180deg, var(--orange) 60px, transparent 60px, transparent 45%, var(--orange) 45%, var(--orange) 75%, transparent 75%), /* right */
+        linear-gradient(270deg, transparent 80px, var(--green) 80px); /* bottom */
+    }
+
+    p {
+      line-height: 1.5;
+      font-family: Helvetica, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <main>
+
+    <div>
+      <section class="style-1">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae soluta mollitia sequi quos optio ducimus ab harum, doloribus assumenda commodi, delectus omnis non ut quidem sapiente? Quas magni error mollitia?
+        </p>
+      </section>
+    </div>
+    <div>
+      <section class="style-1">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae soluta mollitia sequi quos optio ducimus ab harum, doloribus assumenda commodi, delectus omnis non ut quidem sapiente? Quas magni error mollitia?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat necessitatibus minus labore rerum, in assumenda unde voluptatem dolorem dolorum quibusdam sequi inventore obcaecati voluptatibus nobis ea dolor repellendus velit quo?
+        </p>
+      </section>
+    </div>
+
+    <div>
+      <section class="style-2">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae soluta mollitia sequi quos optio ducimus ab harum, doloribus assumenda commodi, delectus omnis non ut quidem sapiente? Quas magni error mollitia?
+        </p>
+      </section>
+    </div>
+    <div>
+      <section class="style-2">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae soluta mollitia sequi quos optio ducimus ab harum, doloribus assumenda commodi, delectus omnis non ut quidem sapiente? Quas magni error mollitia?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat necessitatibus minus labore rerum, in assumenda unde voluptatem dolorem dolorum quibusdam sequi inventore obcaecati voluptatibus nobis ea dolor repellendus velit quo?
+        </p>
+      </section>
+    </div>
+
+
+    <div>
+      <section class="style-3">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae soluta mollitia sequi quos optio ducimus ab harum, doloribus assumenda commodi, delectus omnis non ut quidem sapiente? Quas magni error mollitia?
+        </p>
+      </section>
+    </div>
+    <div>
+      <section class="style-3">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae soluta mollitia sequi quos optio ducimus ab harum, doloribus assumenda commodi, delectus omnis non ut quidem sapiente? Quas magni error mollitia?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat necessitatibus minus labore rerum, in assumenda unde voluptatem dolorem dolorum quibusdam sequi inventore obcaecati voluptatibus nobis ea dolor repellendus velit quo?
+        </p>
+      </section>
+    </div>
+
+  </main>
+</body>
+</html>
