@@ -1,0 +1,108 @@
+body {
+  background-color: #ccc;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.Diaphragm {
+  display: block;
+  margin: 25% auto
+}
+
+.Circle {
+  stroke: #000;
+  fill: transparent;
+}
+
+.Polygon {
+  stroke: #000;
+  fill: #494949;
+  transform: rotate(0deg);
+  animation: polygon 2s ease forwards;
+}
+
+.Polygon-2 {
+  animation-name: polygon-2;
+}
+
+.Polygon-3 {
+  animation-name: polygon-3;
+}
+
+.Polygon-4 {
+  animation-name: polygon-4;
+}
+
+.Polygon-5 {
+  animation-name: polygon-5;
+}
+
+.Polygon-6 {
+  animation-name: polygon-6;
+}
+
+@keyframes polygon-2 {
+  0% {
+
+    transform-origin: 20% 20%;
+    transform: rotate(40deg);
+  }
+
+  100% {
+    transform-origin: 40% 40%;
+    transform: rotate(60deg);
+  }
+}
+
+@keyframes polygon-3 {
+  0% {
+
+    transform-origin: 20% 20%;
+    transform: rotate(100deg);
+  }
+
+  100% {
+    transform-origin: 40% 40%;
+    transform: rotate(120deg);
+  }
+}
+
+@keyframes polygon-4 {
+  0% {
+
+    transform-origin: 20% 20%;
+    transform: rotate(160deg);
+  }
+
+  100% {
+    transform-origin: 40% 40%;
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes polygon-5 {
+  0% {
+
+    transform-origin: 20% 20%;
+    transform: rotate(220deg);
+  }
+
+  100% {
+    transform-origin: 40% 40%;
+    transform: rotate(240deg);
+  }
+}
+
+@keyframes polygon-6 {
+  0% {
+
+    transform-origin: 20% 20%;
+    transform: rotate(280deg);
+  }
+
+  100% {
+    transform-origin: 40% 40%;
+    transform: rotate(300deg);
+  }
+}
