@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine Toast Notification</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body>
+    <div x-data="toastNotification()">
+        <main class="">
+            <button x-on:click="openToast()" class="bg-purple-200 hover:bg-purple-300 text-purple-500 rounded px-6 py-4 m-4">Open Toast</button>
+        </main>
+
+        <div
+            x-show="open"
+            class="w-96 p-4 rounded h-32 fixed bottom-4 right-4 transform-gpu transition-transform duration-400 ease"
+            :class="success ? 'bg-green-500' : 'bg-red-500'"
+            x-transition:enter-start="translate-y-full"
+            x-transition:enter-end="translate-y-0"
+            x-transition:leave-start="translate-y-0"
+            x-transition:leave-end="translate-y-full"
+            >
+            <p class="text-white"><strong x-text="title"></strong></p>
+            <p class="mt-2 text-sm text-white" x-text="message"></p>
+        </div>
+    </div>
+
+    <script>
+        function toastNotification() {
+            return {
+                open: false,
+                title: "Toast Title",
+                message: "Toast message",
+                success: false,
+                openToast() {
+                    this.open = true
+                    setTimeout(() => {
+                        this.open = false
+                    }, 5000)
+                }
+            }
+        }
+    </script>
+</body>
+</html>
